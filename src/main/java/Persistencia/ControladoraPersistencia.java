@@ -3,6 +3,8 @@ package Persistencia;
 import Logica.Duenio;
 import Logica.Mascotas;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControladoraPersistencia {
     
@@ -19,6 +21,16 @@ public class ControladoraPersistencia {
     public List<Mascotas> traerMascotas() {
         return mascotaControler.findAllMascotas();
     }
-    
+
+    public void borrarMascota(int num_cliente) {
+
+        try {
+            mascotaControler.destroy(num_cliente);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
     
 }

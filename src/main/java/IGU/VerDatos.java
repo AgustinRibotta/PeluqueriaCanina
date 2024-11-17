@@ -3,6 +3,8 @@ package IGU;
 import Logica.ControladoraLogica;
 import Logica.Mascotas;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VerDatos extends javax.swing.JFrame {
@@ -101,6 +103,11 @@ public class VerDatos extends javax.swing.JFrame {
         });
 
         btnEliminar1.setText("Eliminar");
+        btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -190,6 +197,47 @@ public class VerDatos extends javax.swing.JFrame {
         cargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+//        Controlo tabla no sea vacio
+        if (tablaMascotas.getRowCount() > 0) {
+//            Controlo selecion de Mascota
+            if (tablaMascotas.getSelectedRow() != -1) {
+//                Obtengo id de la mascota
+                int num_cliente = Integer.parseInt(
+                        String.valueOf(tablaMascotas.getValueAt(
+                                tablaMascotas.getSelectedRow(), 0)));
+//                 Llamo al methodo borrar
+                control.borrarMascota(num_cliente);
+                
+//                Aviso al usuario
+                mostrarMensaje("Mascota eliminada Correctamente",
+                        "Info", "Borrado de mascota");
+                cargarTabla();
+            } else {
+                mostrarMensaje("No seleccionbo ninguna mascota",
+                        "Error", "Error al eliminar");
+            }
+        }else {
+            mostrarMensaje("No hay nada para eliminar en la tabla",
+                    "Error", "Error al eliminar");
+        }
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
+
+    private void mostrarMensaje (String mensaje, String tipo, String titulo) {
+        
+       JOptionPane jOptionPane = new JOptionPane(mensaje);
+       if (tipo.contentEquals("Info")){
+            jOptionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+       } else if (tipo.contentEquals("Error")) {
+            jOptionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+
+       }
+       JDialog dialog = jOptionPane.createDialog(titulo);
+       dialog.setAlwaysOnTop(true);
+       dialog.setVisible(true);
+        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
