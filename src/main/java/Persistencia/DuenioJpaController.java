@@ -6,7 +6,7 @@ import java.util.List;
 
 public class DuenioJpaController {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("miUnidadPersistencia");
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("PeluCaninaPU");
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
