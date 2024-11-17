@@ -1,6 +1,7 @@
 package Logica;
 
 import Persistencia.ControladoraPersistencia;
+import java.util.List;
 
 public class ControladoraLogica {
     
@@ -28,6 +29,10 @@ public class ControladoraLogica {
 
 //         Enviamos los datos a la contrladora de persistencias
         controlPersis.guardar(duenio, masco);
+    }
+
+    public List<Mascotas> traerlMascotas() {
+        return controlPersis.traerMascotas();
     }
     
 }

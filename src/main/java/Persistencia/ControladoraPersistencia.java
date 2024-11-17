@@ -2,6 +2,7 @@ package Persistencia;
 
 import Logica.Duenio;
 import Logica.Mascotas;
+import java.util.List;
 
 public class ControladoraPersistencia {
     
@@ -13,6 +14,10 @@ public class ControladoraPersistencia {
     public void guardar(Duenio duenio, Mascotas masco) {
         duenioControler.create(duenio);
         mascotaControler.create(masco);
+    }
+
+    public List<Mascotas> traerMascotas() {
+        return mascotaControler.findAllMascotas();
     }
     
     
