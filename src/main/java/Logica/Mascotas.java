@@ -1,8 +1,16 @@
 package Logica;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Mascotas {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int num_cliente;
     private String nombre;
     private String raza;
@@ -11,6 +19,7 @@ public class Mascotas {
     private String atencion_especial;
     private String observaciones;
     
+    @OneToOne
     private Duenio unDuenio;
 
     public Mascotas() {
