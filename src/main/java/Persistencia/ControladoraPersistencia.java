@@ -32,5 +32,28 @@ public class ControladoraPersistencia {
         
     }
 
-    
+    public Mascotas buscarMascota(int num_cliente) {
+        return mascotaControler.findMascota(num_cliente);
+    }
+
+    public void modificarMascota(Mascotas masco) {
+        try {
+            mascotaControler.edit(masco);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Duenio traerDuenio(int id_duenio) {
+        return duenioControler.findDuenio(id_duenio);
+    }
+
+    public void modificarDuenio(Duenio dueno) {
+        try {
+            duenioControler.edit(dueno);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
