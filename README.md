@@ -56,6 +56,7 @@ La aplicación está desarrollada exclusivamente en **Java**, utilizando **JPA**
 3. **Ejecutar la aplicación**:
    - Importar el proyecto en tu IDE.
    - Compilar y ejecutar desde la clase principal.
+
 ---
 
 ### Pantalla Principal
